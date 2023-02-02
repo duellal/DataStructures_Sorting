@@ -1,0 +1,22 @@
+{
+  "name": "datastructures_sorting",
+  "version": "1.0.0",
+  "description": "## Iterative Sorting",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jduell12/DataStructures_Sorting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jduell12/DataStructures_Sorting/issues"
+  },
+  "homepage": "https://github.com/jduell12/DataStructures_Sorting#readme",
+  "dependencies": {
+    "jest": "^29.4.1"
+  }
+}
