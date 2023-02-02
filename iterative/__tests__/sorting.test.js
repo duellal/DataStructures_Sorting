@@ -1,4 +1,4 @@
-const {selection_sort, bubble_sort, counting_sort} = require('../sorting/iterative_sorting')
+const {selection_sort, bubble_sort, counting_sort} = require('../iterative_sorting')
 
 describe('Iterative Sorting', ()=>{
     let arr1, arr2, arr3, arr4;
