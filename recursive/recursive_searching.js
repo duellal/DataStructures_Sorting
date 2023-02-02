@@ -20,6 +20,6 @@ const binary_search = (arr, target, start, end) => {}
  * descending order. You can implement this function 
  * either recursively or iteratively
  */
-const agnostic_bianry_search = (arr, target) => {}
+const agnostic_binary_search = (arr, target) => {}
 
-module.exports = {binary_search, agnostic_bianry_search}
+module.exports = {binary_search, agnostic_binary_search}
