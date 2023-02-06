@@ -53,21 +53,8 @@ const merge = (arrA, arrB) =>{}
 
 const merge_sort = arr => {}
 
-/**
- * STRETCH: implement the recursive logic for merge 
- * sort in a way that doesn't utilize any extra memory
- * 
- * In other words, your implementation should not 
- * allocate any additional lists or data structures; 
- * it can only re-use the memory it was given as input
- */
-
-const merge_in_place = (arr, start, mid, end) => {}
-
-const merge_sort_in_place = (arr, left, right) => {}
 
 module.exports = {
     quick_sort, 
-    merge_sort,
-    merge_sort_in_place
+    merge_sort
 }
