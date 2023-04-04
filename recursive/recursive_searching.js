@@ -8,7 +8,31 @@
  * 4. Otherwise, determine which direction the binary search needs to go in
  */
 
-const binary_search = (arr, target, start, end) => {}
+const binary_search = (arr, target, start, end) => {
+
+}
+// // Did the below code in iterative but realized it was most recursive:
+// const binary_search = (arr, target) => {
+//     let array = arr.sort((a, b) => a-b)
+
+//     const bst = (target, start, end) => {
+//         let mid_index = Math.floor((start + end)/2)
+
+//         while(start <= end){
+//             if(array[mid_index] === target){
+//                 return mid_index
+//             }
+//             else if(target < array[mid_index]){
+//                 return bst(target, start, mid_index-1)
+//             }
+//             else if(target > array[mid_index]){
+//                 return bst(target, mid_index+1, end)
+//             }
+//         }
+//         return -1
+//     }
+//     return bst(target, 0, array.length-1)
+// }
 
 /**
  * STRETCH
