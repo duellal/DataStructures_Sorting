@@ -7,7 +7,7 @@ describe('Iterative Searching', ()=>{
         arr1 = [-2, 7, 3, -9, 5, 1, 0, 4, -6]
         arr2 = []
     })
-    
+     
     describe('linear_search', ()=>{
        it('returns the index if it finds the target', ()=>{
         expect(linear_search(arr1, -6)).toBe(8)
