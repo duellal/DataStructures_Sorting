@@ -41,6 +41,10 @@ const partition = arr => {
 }
 
 const quick_sort = arr => {
+    if(arr.length === 0){
+        return arr
+    }
+
     let sort_arr = []
     let part_arr = partition(arr)
 
@@ -54,10 +58,6 @@ const quick_sort = arr => {
         }
     }
 
-    if(arr.length === 0){
-        return arr
-    }
-    
     return sort_arr
 }
 
@@ -83,9 +83,55 @@ const quick_sort = arr => {
  */
 
 //helper function to merge 2 sorted arrays
-const merge = (arrA, arrB) =>{}
+const merge = (arrA, arrB) =>{
+    let new_arr = []
 
-const merge_sort = arr => {}
+    while(arrA.length && arrB.length){
+        if(arrA[0] >= arrB[0]){
+            new_arr.push(arrB.shift())
+        }
+        else{
+            new_arr.push(arrA.shift())
+        }
+    }
+
+    while(arrA.length){
+        new_arr.push(arrA.shift())
+    }
+
+    while(arrB.length){
+        new_arr.push(arrB.shift())
+    }
+
+    return new_arr
+}
+
+const merge_sort = arr => {
+    let split_arr = []
+
+    if(arr.length === 0){
+        return arr
+    }
+    
+    //Splitting the array into individual elements:
+    for(let i = 0; i < arr.length; i++){
+        if(split_arr.length !== arr.length){
+            split_arr.push([arr[i]])
+        }
+    }
+
+    //Sorting + merging the individual elements:
+    while(split_arr.length > 1){
+        for(let e = 0; e < split_arr.length; e++){
+            if(split_arr[e].length === arr.length){
+                return split_arr[e]
+            }
+
+            split_arr = split_arr.concat([merge(split_arr[e], split_arr[e+1])])
+            split_arr.shift()
+        }
+    }
+}
 
 
 module.exports = {
