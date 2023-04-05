@@ -28,12 +28,12 @@ describe('Iterative Sorting', ()=>{
         })
     })
     
-    describe.skip('counting_sort', ()=>{
+    describe('counting_sort', ()=>{
         it('sorts an array', ()=>{
             expect(counting_sort(arr1)).toEqual([0, 1, 2, 3])
             expect(counting_sort(arr2)).toEqual([0,1,2,3,4,5,6,7,8,9])
             expect(counting_sort(arr3)).toEqual([])
-            expect(counting_sort(arr4)).toEqual(arr4.sort())
+            expect(counting_sort(arr4)).toEqual(arr4.sort((a, b) => a-b))
         })
     })
 })

@@ -7,7 +7,14 @@
  * 4. Otherwise go to next index. If next index is out of bounds return -1 
  */
 
-const linear_search = (arr, target) => {}
+const linear_search = (arr, target) => {
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === target){
+            return i
+        }
+    }
+    return -1
+}
 
 /**
  * Binary Search - O(log n)
@@ -64,8 +71,28 @@ const linear_search = (arr, target) => {}
  *     - return index aka 7
  */
 
-const binary_search = (arr, target) => {}
+const binary_search = (arr, target) => {
+    let array = arr.sort((a, b) => a-b)
+    let start = 0
+    let end = array.length - 1
+
+    while(start <= end){
+        let mid_index = Math.floor((start + end)/2)
+        
+        if(array[mid_index] === target){
+            return mid_index
+        }
+        else if(target < array[mid_index]){
+            end = mid_index-1
+        }
+        else if(target > array[mid_index]){
+            start = mid_index+1
+        }
+    }
+    return -1
+}
 
 module.exports = {
-    linear_search, binary_search
+    linear_search, 
+    binary_search
 }

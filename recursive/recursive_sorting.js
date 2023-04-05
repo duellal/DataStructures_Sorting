@@ -23,9 +23,43 @@
 
 
 //helper function that does the partition
-const partition = arr => {}
+const partition = arr => {
+    let pivot = arr[0]
+    let sm_arr = []
+    let lg_arr = []
 
-const quick_sort = arr => {}
+    for(let i = 1; i < arr.length; i++){
+        if(pivot >= arr[i]){
+            sm_arr.unshift(arr[i])
+        }
+        else if(pivot < arr[i]){
+            lg_arr.push(arr[i])
+        }
+    }
+
+    return [sm_arr, [pivot], lg_arr]
+}
+
+const quick_sort = arr => {
+    if(arr.length === 0){
+        return arr
+    }
+
+    let sort_arr = []
+    let part_arr = partition(arr)
+
+    for(let i = 0; i < part_arr.length; i++){
+        if(part_arr[i].length === 1){
+            sort_arr = sort_arr.concat(part_arr[i])
+        }
+
+        if(part_arr[i].length > 1){
+            sort_arr = sort_arr.concat(quick_sort(part_arr[i]))
+        }
+    }
+
+    return sort_arr
+}
 
 /**
  * Merge Sort - O(n log n)
@@ -49,9 +83,55 @@ const quick_sort = arr => {}
  */
 
 //helper function to merge 2 sorted arrays
-const merge = (arrA, arrB) =>{}
+const merge = (arrA, arrB) =>{
+    let new_arr = []
 
-const merge_sort = arr => {}
+    while(arrA.length && arrB.length){
+        if(arrA[0] >= arrB[0]){
+            new_arr.push(arrB.shift())
+        }
+        else{
+            new_arr.push(arrA.shift())
+        }
+    }
+
+    while(arrA.length){
+        new_arr.push(arrA.shift())
+    }
+
+    while(arrB.length){
+        new_arr.push(arrB.shift())
+    }
+
+    return new_arr
+}
+
+const merge_sort = arr => {
+    let split_arr = []
+
+    if(arr.length === 0){
+        return arr
+    }
+    
+    //Splitting the array into individual elements:
+    for(let i = 0; i < arr.length; i++){
+        if(split_arr.length !== arr.length){
+            split_arr.push([arr[i]])
+        }
+    }
+
+    //Sorting + merging the individual elements:
+    while(split_arr.length > 1){
+        for(let e = 0; e < split_arr.length; e++){
+            if(split_arr[e].length === arr.length){
+                return split_arr[e]
+            }
+
+            split_arr = split_arr.concat([merge(split_arr[e], split_arr[e+1])])
+            split_arr.shift()
+        }
+    }
+}
 
 
 module.exports = {

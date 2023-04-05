@@ -5,7 +5,7 @@
  * 2. Find the smallest element in the array and move it to the front 
  * 3. Swap the element to where we know it's supposed to go
  * 4. Increment current boundry to 1 and repeat 
- * 5. When current boundry > length(arr) - 1 return  the sorted array
+ * 5. When current boundry > length(arr) - 1 return the sorted array
  * 
  * Runtime Complexity:
  *     walking the boundry from one end to the other: O(n)
@@ -14,7 +14,24 @@
  *           = O(n^2)
  */
 
-const selection_sort = arr => {}
+const selection_sort = arr => {
+        for(let i = 0; i < arr.length - 1; i++){
+            let min_index = i
+
+            for(let n = i + 1; n < arr.length; n++){
+                if(arr[n] < arr[min_index]){
+                    min_index = n
+                }
+            }
+
+            if(min_index != i){
+                let num = arr[i]
+                arr[i] = arr[min_index]
+                arr[min_index] = num
+            }
+        }
+    return arr
+}
 
 /** 
  * Bubble Sort - O(n^2)
@@ -25,7 +42,18 @@ const selection_sort = arr => {}
  * 4. Return the sorted array
 */
 
-const bubble_sort = arr => {}
+const bubble_sort = arr => {
+    for(let i = 0; i < arr.length; i++){
+        for(let n = 0; n < arr.length; n++){
+            if(arr[i] < arr[n]){
+                let num = arr[i]
+                arr[i] = arr[n]
+                arr[n]  = num
+            }
+        }
+    }
+    return arr
+}
 
 /**
  * STRETCH
@@ -65,6 +93,39 @@ const bubble_sort = arr => {}
  *         same as prev: O(n + m)
  */
 
-const counting_sort = (arr, maximum=null) => {}
+const counting_sort = (arr, maximum=null) => {
+    let max_arr
+    let new_arr = []
+
+    if(maximum){
+        max_arr = Array(maximum+1).fill(0)
+    }
+    else{
+        max_arr = Array(arr.length + 1).fill(0)
+    }
+
+    for(let m = 0; m < max_arr.length; m++){
+        for(let a = 0; a < arr.length; a++){
+            if(arr[a] === m){
+                max_arr[m]++
+            }
+        }
+    }
+
+    let count = max_arr.reduce((partialSum, a) => partialSum + a, 0)
+
+    for(let c = 0; c < count; c++){
+        if(max_arr[c] === 1){
+            new_arr.push(c)
+        }
+        else if(max_arr[c] > 1){
+            for(let i = 0; i < max_arr[c]; i++){
+                new_arr.push(c)
+            }
+        }
+    }
+
+    return new_arr
+}
 
 module.exports = {selection_sort, bubble_sort, counting_sort}
