@@ -23,9 +23,43 @@
 
 
 //helper function that does the partition
-const partition = arr => {}
+const partition = arr => {
+    let pivot = arr[0]
+    let sm_arr = []
+    let lg_arr = []
 
-const quick_sort = arr => {}
+    for(let i = 1; i < arr.length; i++){
+        if(pivot >= arr[i]){
+            sm_arr.unshift(arr[i])
+        }
+        else if(pivot < arr[i]){
+            lg_arr.push(arr[i])
+        }
+    }
+
+    return [sm_arr, [pivot], lg_arr]
+}
+
+const quick_sort = arr => {
+    let sort_arr = []
+    let part_arr = partition(arr)
+
+    for(let i = 0; i < part_arr.length; i++){
+        if(part_arr[i].length === 1){
+            sort_arr = sort_arr.concat(part_arr[i])
+        }
+
+        if(part_arr[i].length > 1){
+            sort_arr = sort_arr.concat(quick_sort(part_arr[i]))
+        }
+    }
+
+    if(arr.length === 0){
+        return arr
+    }
+    
+    return sort_arr
+}
 
 /**
  * Merge Sort - O(n log n)

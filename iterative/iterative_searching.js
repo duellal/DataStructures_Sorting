@@ -89,7 +89,6 @@ const binary_search = (arr, target) => {
             start = mid_index+1
         }
     }
-
     return -1
 }
 
