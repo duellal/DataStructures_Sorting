@@ -20,7 +20,7 @@ describe('Recursive Searching', ()=>{
         })
      })
      
-     describe.skip('agnostic_binary_search', ()=>{
+     describe('agnostic_binary_search', ()=>{
         it('returns the index if it finds the target', ()=>{
          expect(agnostic_binary_search(arr1, -6)).toBe(8)
          expect(agnostic_binary_search(arr1, 0)).toBe(6)

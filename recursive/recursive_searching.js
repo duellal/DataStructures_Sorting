@@ -23,7 +23,7 @@ const binary_search = (arr, target, start, end) => {
             return binary_search(array, target, start, mid_index-1)
         }
     }
-    
+
     return -1
 }
 
@@ -37,6 +37,13 @@ const binary_search = (arr, target, start, end) => {
  * descending order. You can implement this function 
  * either recursively or iteratively
  */
-const agnostic_binary_search = (arr, target) => {}
+const agnostic_binary_search = (arr, target) => {
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === target){
+            return i
+        }
+    }
+    return -1
+}
 
 module.exports = {binary_search, agnostic_binary_search}
