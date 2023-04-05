@@ -94,6 +94,38 @@ const bubble_sort = arr => {
  */
 
 const counting_sort = (arr, maximum=null) => {
+    let max_arr
+    let new_arr = []
+
+    if(maximum){
+        max_arr = Array(maximum+1).fill(0)
+    }
+    else{
+        max_arr = Array(arr.length + 1).fill(0)
+    }
+
+    for(let m = 0; m < max_arr.length; m++){
+        for(let a = 0; a < arr.length; a++){
+            if(arr[a] === m){
+                max_arr[m]++
+            }
+        }
+    }
+
+    let count = max_arr.reduce((partialSum, a) => partialSum + a, 0)
+
+    for(let c = 0; c < count; c++){
+        if(max_arr[c] === 1){
+            new_arr.push(c)
+        }
+        else if(max_arr[c] > 1){
+            for(let i = 0; i < max_arr[c]; i++){
+                new_arr.push(c)
+            }
+        }
+    }
+
+    return new_arr
 }
 
 module.exports = {selection_sort, bubble_sort, counting_sort}
